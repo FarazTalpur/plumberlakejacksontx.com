@@ -3,24 +3,26 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title id="about_page_title">Plumber in Lake Jackson, TX | Emergency Service</title>
+<title id="about_page_title">About Us | Pro Plumber Lake Jackson</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Emergency Plumber in Lake Jackson, TX" id="about_meta_emergency_title" name="keywords"/>
-<meta content="Reliable and professional plumbing services in Lake Jackson, TX, offering expert residential and commercial plumbing solutions. Trust our experienced team for prompt repairs, installations, and maintenance. Available 24/7 for emergency plumbing needs to ensure your peace of mind. Contact us today for quality service." id="about_meta_description" name="description"/>
+<meta content="Emergency Plumber in Lake Jackson, TX | Pro Plumber Lake Jackson" id="about_meta_emergency_title" name="keywords"/>
+<meta content="Reliable and professional plumbing services in Lake Jackson, TX, providing 24/7 emergency repairs, installations, and maintenance. Trust our experienced plumbers for all your residential and commercial plumbing needs. Satisfaction guaranteed!" id="about_meta_description" name="description"/>
 <!-- Favicon -->
 <link href="img/favicon.ico" rel="icon"/>
 <!-- Google Web Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<!-- Preload the font CSS to speed up fetching -->
+<link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Roboto:wght@500;700&amp;display=swap" rel="preload"/>
+<!-- Apply the font stylesheet -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Roboto:wght@500;700&amp;display=swap" rel="stylesheet"/>
 <!-- Icon Font Stylesheet -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet"/>
+<link as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
 <!-- Libraries Stylesheet -->
-<link href="lib/animate/animate.min.css" rel="stylesheet"/>
 <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"/>
-<link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet"/>
-<!-- Customized Bootstrap Stylesheet -->
+<!-- Preload Bootstrap CSS to ensure it's fetched as early as possible -->
+<link as="style" href="css/bootstrap.min.css" rel="preload"/>
 <link href="css/bootstrap.min.css" rel="stylesheet"/>
 <!-- Template Stylesheet -->
 <link href="css/style.css" rel="stylesheet"/>
@@ -31,7 +33,7 @@
             padding: 0;
             font-family: Arial, sans-serif;
         }
-    
+
         /* Floating full-width button */
         .call-now-button {
             position: fixed;
@@ -51,64 +53,153 @@
             z-index: 1000;
             transition: background-color 0.3s ease;
         }
-    
+
         /* Hover effect */
         .call-now-button:hover {
             background-color: #218838;
         }
-    
+
         /* Active (clicked) state */
         .call-now-button:active {
             background-color: #1e7e34;
         }
-    
+
         /* Prevent blue text after click */
         .call-now-button:visited {
             color: white;
         }
-    
+
         /* Ensure the button is mobile-friendly */
         @media (min-width: 768px) {
             .call-now-button {
                 display: none;
             }
         }
+
+        /* Desktop Dropdown Styles */
+        @media screen and (min-width: 1024px) {
+
+            /* Ensure sub-menus only appear when hovering over the parent item */
+            #service_dropdown .dropdown:hover>.dropdown-menu,
+            #serviceArea_dropdown .dropdown:hover>.dropdown-menu {
+                display: block;
+            }
+
+            /* Standard styling for dropdown submenus */
+            #service_dropdown .dropdown-menu.dropdown-submenu,
+            #serviceArea_dropdown .dropdown-menu.dropdown-submenu {
+                top: -5px;
+                left: 90%;
+                margin-left: 0.1rem;
+                display: none;
+                position: absolute;
+            }
+
+            /* General dropdown menu transitions */
+            #service_dropdown .dropdown-menu,
+            #serviceArea_dropdown .dropdown-menu {
+                display: none;
+                transition: all 0.3s ease-in-out;
+                z-index: 1050;
+            }
+
+            /* Optional: Add delay for opening and closing the menu */
+            #service_dropdown:hover>.dropdown-menu,
+            #serviceArea_dropdown:hover>.dropdown-menu,
+            .dropdown-item.dropdown:hover>.dropdown-menu,
+            #service_dropdown,
+            #serviceArea_dropdown,
+            .dropdown-item.dropdown {
+                transition-delay: 0.2s;
+            }
+        }
+
+        /* Mobile Menu Styling */
+        @media (max-width: 768px) {
+
+            #mobileServiceDropdown .nav-link,
+            #mobileServiceAreaDropdown .nav-link {
+                padding-left: 20px;
+            }
+
+            /* Submenu indentation for mobile */
+            .ms-3 {
+                padding-left: 30px;
+            }
+
+            .nav-item.nav-link {
+                font-size: 1rem;
+            }
+
+            /* Custom styling for dropdown toggle on mobile */
+            #mobileServicesMenu .nav-item.nav-link,
+            #mobileServiceAreaMenu .nav-item.nav-link {
+                font-weight: bold;
+            }
+
+            /* Ensure collapsed submenus are hidden on mobile until toggled */
+            #mobileServiceDropdown .collapse,
+            #mobileServiceAreaDropdown .collapse {
+                display: none;
+            }
+
+            #mobileServiceDropdown .collapse.show,
+            #mobileServiceAreaDropdown .collapse.show {
+                display: block;
+            }
+
+            /* Hide parent dropdowns on mobile */
+            #parentServiceDropdown,
+            #parentServiceAreaDropdown {
+                display: none;
+            }
+        }
     </style>
-</head>
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://plumberlakejacksontx.com"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About Us",
+            "item": "https://plumberlakejacksontx.com/about"
+        }
+    ]
+}</script></head>
 <body>
-<a class="call-now-button phoneNumber" href="tel:(773) 337-2939" id="btn_CallNow">
+<a class="call-now-button phoneNumber" href="tel:(972) 903-8063" id="btn_CallNow">
 <i>📞</i> Call Now
         </a>
-<!-- Spinner Start -->
-<div class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center" id="spinner">
-<div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
-<span class="sr-only">Loading...</span>
-</div>
-</div>
-<!-- Spinner End -->
 <!-- Topbar Start -->
 <div class="container-fluid bg-light d-none d-lg-block">
 <div class="row align-items-center top-bar">
 <div class="col-lg-3 col-md-12 text-center text-lg-start">
 <a class="navbar-brand m-0 p-0 homeURL" href="https://plumberlakejacksontx.com">
-<h1 class="text-primary m-0" id="about_top_nav_niche">Lake Jackson, TX Plumber</h1>
+<img alt="Logo" class="m-0 img w-50" id="logo_desktop" src="https://ik.imagekit.io/5qfjdtfh72/Plumbing%20Lead%20Gen/Lake%20Jackson/7.png?updatedAt=1740056996967"/>
 </a>
 </div>
 <div class="col-lg-9 col-md-12 text-end">
 <div class="h-100 d-inline-flex align-items-center me-4">
 <i class="fa fa-map-marker-alt text-primary me-2"></i>
-<p class="m-0" id="about_top_nav_city">Lake Jackson, TX</p>
+<p class="m-0" id="about_top_nav_city">136 Oyster Creek Dr suite b, Lake Jackson, TX 77566, USA</p>
 </div>
 <div class="h-100 d-inline-flex align-items-center me-4">
 <i class="far fa-envelope-open text-primary me-2"></i>
-<p class="m-0" id="about_top_nav_email">info@plumberlakejacksontx.com</p>
+<p class="m-0" id="top_nav_email">info@plumberlakejacksontx.com</p>
 </div>
-<!-- <div class="h-100 d-inline-flex align-items-center">
-                    <a class="btn btn-sm-square bg-white text-primary me-1" href="[Facebook]"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-sm-square bg-white text-primary me-1" href="[Twitter]"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-sm-square bg-white text-primary me-1" href="[LinkedIn]"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-sm-square bg-white text-primary me-0" href="[Instagram]"><i class="fab fa-instagram"></i></a>
-                </div> -->
+<div class="h-100 d-inline-flex align-items-center">
+<a class="socialFacebook btn btn-sm-square bg-white text-primary me-1" href="https://www.facebook.com/proplumberlakejackson"><i class="fab fa-facebook-f"></i></a>
+<a class="socialInstagram btn btn-sm-square bg-white text-primary me-1" href="#"><i class="fab fa-instagram"></i></a>
+<a class="socialLinkedin btn btn-sm-square bg-white text-primary me-1" href="https://www.linkedin.com/in/pro-plumber-lake-jackson-6811a1356/"><i class="fab fa-linkedin-in"></i></a>
+<a class="socialPinterest btn btn-sm-square bg-white text-primary me-0" href="https://www.pinterest.com/ProPlumberLakeJackson/"><i class="fab fa-pinterest"></i></a>
+</div>
 </div>
 </div>
 </div>
@@ -116,8 +207,8 @@
 <!-- Navbar Start -->
 <div class="container-fluid nav-bar bg-light">
 <nav class="navbar navbar-expand-lg navbar-light bg-white p-3 py-lg-0 px-lg-4">
-<a class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none" href="">
-<h1 class="text-primary m-0" id="about_nav_niche_h1">Lake Jackson, TX Plumber</h1>
+<a class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none" href="https://plumberlakejacksontx.com/">
+<img alt="Logo" class="m-0" id="logo_mobile" src="https://ik.imagekit.io/5qfjdtfh72/Plumbing%20Lead%20Gen/Lake%20Jackson/7%20(1).png?updatedAt=1740057030566"/>
 </a>
 <button class="navbar-toggler" data-bs-target="#navbarCollapse" data-bs-toggle="collapse" type="button">
 <span class="fa fa-bars"></span>
@@ -125,12 +216,28 @@
 <div class="collapse navbar-collapse" id="navbarCollapse">
 <div class="navbar-nav me-auto">
 <a class="nav-item nav-link homeURL" href="https://plumberlakejacksontx.com">Home</a>
-<a class="nav-item nav-link active" href="about">About</a>
-<div class="nav-item dropdown">
+<a class="nav-item nav-link active" href="https://plumberlakejacksontx.com/about">About</a>
+<!-- Services Dropdown -->
+<div class="nav-item dropdown" id="parentServiceDropdown">
 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Services</a>
-<div class="dropdown-menu fade-up m-0" id="service_dropdown"><a class="dropdown-item" href="leak-detection">Leak Detection</a><a class="dropdown-item" href="leak-repair">Leak Repair</a><a class="dropdown-item" href="pipe-repair">Pipe Repair</a><a class="dropdown-item" href="tap-repair">Tap Repair</a><a class="dropdown-item" href="drainage-cleaning">Drainage Cleaning</a></div>
+<div class="dropdown-menu fade-up m-0" id="service_dropdown"><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/emergency-plumbing">Emergency Plumbing</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/emergency-plumbing/24-hour-emergency-plumbing">24-Hour Emergency Plumbing</a><a class="dropdown-item" href="/emergency-plumbing/burst-pipe-repair">Burst Pipe Repair</a><a class="dropdown-item" href="/emergency-plumbing/flooded-basement-solutions">Flooded Basement Solutions</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/leak-detection-and-repair">Leak Detection And Repair</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/leak-detection-and-repair/water-leak-detection">Water Leak Detection</a><a class="dropdown-item" href="/leak-detection-and-repair/slab-leak-repair">Slab Leak Repair</a><a class="dropdown-item" href="/leak-detection-and-repair/faucet-leak-repair">Faucet Leak Repair</a><a class="dropdown-item" href="/leak-detection-and-repair/toilet-leak-repair">Toilet Leak Repair</a><a class="dropdown-item" href="/leak-detection-and-repair/pipe-leak-repair">Pipe Leak Repair</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/drain-cleaning">Drain Cleaning</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/drain-cleaning/clogged-drain-repair">Clogged Drain Repair</a><a class="dropdown-item" href="/drain-cleaning/hydro-jetting-services">Hydro Jetting Services</a><a class="dropdown-item" href="/drain-cleaning/sewer-drain-cleaning">Sewer Drain Cleaning</a><a class="dropdown-item" href="/drain-cleaning/kitchen-drain-cleaning">Kitchen Drain Cleaning</a><a class="dropdown-item" href="/drain-cleaning/bathroom-drain-cleaning">Bathroom Drain Cleaning</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/water-heater-services">Water Heater Services</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/water-heater-services/water-heater-installation">Water Heater Installation</a><a class="dropdown-item" href="/water-heater-services/water-heater-repair">Water Heater Repair</a><a class="dropdown-item" href="/water-heater-services/tankless-water-heater-installation">Tankless Water Heater Installation</a><a class="dropdown-item" href="/water-heater-services/water-heater-maintenance">Water Heater Maintenance</a><a class="dropdown-item" href="/water-heater-services/water-heater-replacement">Water Heater Replacement</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/pipe-repair-and-replacement">Pipe Repair and Replacement</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/pipe-repair-and-replacement/repiping-services">Repiping Services</a><a class="dropdown-item" href="/pipe-repair-and-replacement/copper-pipe-repair">Copper Pipe Repair</a><a class="dropdown-item" href="/pipe-repair-and-replacement/pex-pipe-installation">PEX Pipe Installation</a><a class="dropdown-item" href="/pipe-repair-and-replacement/pipe-insulation-services">Pipe Insulation Services</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/bathroom-plumbing">Bathroom Plumbing</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/bathroom-plumbing/toilet-installation-and-repair">Toilet Installation and Repair</a><a class="dropdown-item" href="/bathroom-plumbing/shower-and-bathtub-installation">Shower and Bathtub Installation</a><a class="dropdown-item" href="/bathroom-plumbing/bath-faucet-and-sink-installation">Bath Faucet and Sink Installation</a><a class="dropdown-item" href="/bathroom-plumbing/bidet-installation">Bidet Installation</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/kitchen-plumbing">Kitchen Plumbing</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/kitchen-plumbing/garbage-disposal-repair-and-installation">Garbage Disposal Repair and Installation</a><a class="dropdown-item" href="/kitchen-plumbing/kitchen-faucet-and-sink-installation">Kitchen Faucet and Sink Installation</a><a class="dropdown-item" href="/kitchen-plumbing/dishwasher-installation">Dishwasher Installation</a><a class="dropdown-item" href="/kitchen-plumbing/ice-maker-line-installation">Ice Maker Line Installation</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/sewer-line-services">Sewer Line Services</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/sewer-line-services/sewer-line-repair">Sewer Line Repair</a><a class="dropdown-item" href="/sewer-line-services/sewer-line-replacement">Sewer Line Replacement</a><a class="dropdown-item" href="/sewer-line-services/trenchless-sewer-repair">Trenchless Sewer Repair</a><a class="dropdown-item" href="/sewer-line-services/sewer-camera-inspection">Sewer Camera Inspection</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/gas-line-services">Gas Line Services</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/gas-line-services/gas-line-installation">Gas Line Installation</a><a class="dropdown-item" href="/gas-line-services/gas-line-repair">Gas Line Repair</a><a class="dropdown-item" href="/gas-line-services/gas-leak-detection">Gas Leak Detection</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/water-filtration-and-softening">Water Filtration and Softening</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/water-filtration-and-softening/whole-house-water-filtration-installation">Whole-House Water Filtration Installation</a><a class="dropdown-item" href="/water-filtration-and-softening/water-softener-installation">Water Softener Installation</a><a class="dropdown-item" href="/water-filtration-and-softening/reverse-osmosis-systems">Reverse Osmosis Systems</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/outdoor-plumbing">Outdoor Plumbing</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/outdoor-plumbing/outdoor-faucet-installation">Outdoor Faucet Installation</a><a class="dropdown-item" href="/outdoor-plumbing/irrigation-system-installation-and-repair">Irrigation System Installation and Repair</a><a class="dropdown-item" href="/outdoor-plumbing/swimming-pool-plumbing-services">Swimming Pool Plumbing Services</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/maintenance-and-inspections">Maintenance and Inspections</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/maintenance-and-inspections/plumbing-system-inspections">Plumbing System Inspections</a><a class="dropdown-item" href="/maintenance-and-inspections/routine-plumbing-maintenance">Routine Plumbing Maintenance</a><a class="dropdown-item" href="/maintenance-and-inspections/seasonal-plumbing-check-ups">Seasonal Plumbing Check-ups</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/remodeling-and-new-construction-plumbing">Remodeling and New Construction Plumbing</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/remodeling-and-new-construction-plumbing/kitchen-remodel-plumbing">Kitchen Remodel Plumbing</a><a class="dropdown-item" href="/remodeling-and-new-construction-plumbing/new-construction-plumbing">New Construction Plumbing</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/backflow-prevention">Backflow Prevention</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/backflow-prevention/backflow-testing">Backflow Testing</a><a class="dropdown-item" href="/backflow-prevention/backflow-prevention-device-installation">Backflow Prevention Device Installation</a><a class="dropdown-item" href="/backflow-prevention/backflow-repair-and-maintenance">Backflow Repair and Maintenance</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/sump-pump-services">Sump Pump Services</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/sump-pump-services/sump-pump-installation">Sump Pump Installation</a><a class="dropdown-item" href="/sump-pump-services/sump-pump-repair">Sump Pump Repair</a><a class="dropdown-item" href="/sump-pump-services/sump-pump-maintenance">Sump Pump Maintenance</a><a class="dropdown-item" href="/sump-pump-services/battery-backup-sump-pumps">Battery Backup Sump Pumps</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/water-pressure-issues">Water Pressure Issues</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/water-pressure-issues/water-pressure-testing">Water Pressure Testing</a><a class="dropdown-item" href="/water-pressure-issues/low-water-pressure-solutions">Low Water Pressure Solutions</a><a class="dropdown-item" href="/water-pressure-issues/high-water-pressure-regulation">High Water Pressure Regulation</a></div></div><div class="dropdown-item dropdown"><a class="dropdown-toggle dropdown-item" href="/eco-friendly-plumbing-solutions">Eco-Friendly Plumbing Solutions</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="/eco-friendly-plumbing-solutions/low-flow-fixture-installation">Low-Flow Fixture Installation</a><a class="dropdown-item" href="/eco-friendly-plumbing-solutions/greywater-recycling-systems">Greywater Recycling Systems</a><a class="dropdown-item" href="/eco-friendly-plumbing-solutions/rainwater-harvesting-systems">Rainwater Harvesting Systems</a></div></div></div>
 </div>
-<a class="nav-item nav-link" href="contact">Contact</a>
+<div class="d-block d-lg-none" id="mobileServicesMenu">
+<a class="nav-item nav-link dropdown-toggle" data-bs-target="#mobileServiceDropdown" data-bs-toggle="collapse" href="#">Services</a>
+<div class="collapse" id="mobileServiceDropdown"><a class="nav-item nav-link dropdown-toggle" data-bs-target="#emergencyplumbingDropdown" data-bs-toggle="collapse" href="/emergency-plumbing">Emergency Plumbing</a><div class="collapse ms-3" id="emergencyplumbingDropdown"><a class="nav-item nav-link" href="/emergency-plumbing/24-hour-emergency-plumbing">24-Hour Emergency Plumbing</a><a class="nav-item nav-link" href="/emergency-plumbing/burst-pipe-repair">Burst Pipe Repair</a><a class="nav-item nav-link" href="/emergency-plumbing/flooded-basement-solutions">Flooded Basement Solutions</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#leakdetectionandrepairDropdown" data-bs-toggle="collapse" href="/leak-detection-and-repair">Leak Detection And Repair</a><div class="collapse ms-3" id="leakdetectionandrepairDropdown"><a class="nav-item nav-link" href="/leak-detection-and-repair/water-leak-detection">Water Leak Detection</a><a class="nav-item nav-link" href="/leak-detection-and-repair/slab-leak-repair">Slab Leak Repair</a><a class="nav-item nav-link" href="/leak-detection-and-repair/faucet-leak-repair">Faucet Leak Repair</a><a class="nav-item nav-link" href="/leak-detection-and-repair/toilet-leak-repair">Toilet Leak Repair</a><a class="nav-item nav-link" href="/leak-detection-and-repair/pipe-leak-repair">Pipe Leak Repair</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#draincleaningDropdown" data-bs-toggle="collapse" href="/drain-cleaning">Drain Cleaning</a><div class="collapse ms-3" id="draincleaningDropdown"><a class="nav-item nav-link" href="/drain-cleaning/clogged-drain-repair">Clogged Drain Repair</a><a class="nav-item nav-link" href="/drain-cleaning/hydro-jetting-services">Hydro Jetting Services</a><a class="nav-item nav-link" href="/drain-cleaning/sewer-drain-cleaning">Sewer Drain Cleaning</a><a class="nav-item nav-link" href="/drain-cleaning/kitchen-drain-cleaning">Kitchen Drain Cleaning</a><a class="nav-item nav-link" href="/drain-cleaning/bathroom-drain-cleaning">Bathroom Drain Cleaning</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#waterheaterservicesDropdown" data-bs-toggle="collapse" href="/water-heater-services">Water Heater Services</a><div class="collapse ms-3" id="waterheaterservicesDropdown"><a class="nav-item nav-link" href="/water-heater-services/water-heater-installation">Water Heater Installation</a><a class="nav-item nav-link" href="/water-heater-services/water-heater-repair">Water Heater Repair</a><a class="nav-item nav-link" href="/water-heater-services/tankless-water-heater-installation">Tankless Water Heater Installation</a><a class="nav-item nav-link" href="/water-heater-services/water-heater-maintenance">Water Heater Maintenance</a><a class="nav-item nav-link" href="/water-heater-services/water-heater-replacement">Water Heater Replacement</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#piperepairandreplacementDropdown" data-bs-toggle="collapse" href="/pipe-repair-and-replacement">Pipe Repair and Replacement</a><div class="collapse ms-3" id="piperepairandreplacementDropdown"><a class="nav-item nav-link" href="/pipe-repair-and-replacement/repiping-services">Repiping Services</a><a class="nav-item nav-link" href="/pipe-repair-and-replacement/copper-pipe-repair">Copper Pipe Repair</a><a class="nav-item nav-link" href="/pipe-repair-and-replacement/pex-pipe-installation">PEX Pipe Installation</a><a class="nav-item nav-link" href="/pipe-repair-and-replacement/pipe-insulation-services">Pipe Insulation Services</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#bathroomplumbingDropdown" data-bs-toggle="collapse" href="/bathroom-plumbing">Bathroom Plumbing</a><div class="collapse ms-3" id="bathroomplumbingDropdown"><a class="nav-item nav-link" href="/bathroom-plumbing/toilet-installation-and-repair">Toilet Installation and Repair</a><a class="nav-item nav-link" href="/bathroom-plumbing/shower-and-bathtub-installation">Shower and Bathtub Installation</a><a class="nav-item nav-link" href="/bathroom-plumbing/bath-faucet-and-sink-installation">Bath Faucet and Sink Installation</a><a class="nav-item nav-link" href="/bathroom-plumbing/bidet-installation">Bidet Installation</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#kitchenplumbingDropdown" data-bs-toggle="collapse" href="/kitchen-plumbing">Kitchen Plumbing</a><div class="collapse ms-3" id="kitchenplumbingDropdown"><a class="nav-item nav-link" href="/kitchen-plumbing/garbage-disposal-repair-and-installation">Garbage Disposal Repair and Installation</a><a class="nav-item nav-link" href="/kitchen-plumbing/kitchen-faucet-and-sink-installation">Kitchen Faucet and Sink Installation</a><a class="nav-item nav-link" href="/kitchen-plumbing/dishwasher-installation">Dishwasher Installation</a><a class="nav-item nav-link" href="/kitchen-plumbing/ice-maker-line-installation">Ice Maker Line Installation</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#sewerlineservicesDropdown" data-bs-toggle="collapse" href="/sewer-line-services">Sewer Line Services</a><div class="collapse ms-3" id="sewerlineservicesDropdown"><a class="nav-item nav-link" href="/sewer-line-services/sewer-line-repair">Sewer Line Repair</a><a class="nav-item nav-link" href="/sewer-line-services/sewer-line-replacement">Sewer Line Replacement</a><a class="nav-item nav-link" href="/sewer-line-services/trenchless-sewer-repair">Trenchless Sewer Repair</a><a class="nav-item nav-link" href="/sewer-line-services/sewer-camera-inspection">Sewer Camera Inspection</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#gaslineservicesDropdown" data-bs-toggle="collapse" href="/gas-line-services">Gas Line Services</a><div class="collapse ms-3" id="gaslineservicesDropdown"><a class="nav-item nav-link" href="/gas-line-services/gas-line-installation">Gas Line Installation</a><a class="nav-item nav-link" href="/gas-line-services/gas-line-repair">Gas Line Repair</a><a class="nav-item nav-link" href="/gas-line-services/gas-leak-detection">Gas Leak Detection</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#waterfiltrationandsofteningDropdown" data-bs-toggle="collapse" href="/water-filtration-and-softening">Water Filtration and Softening</a><div class="collapse ms-3" id="waterfiltrationandsofteningDropdown"><a class="nav-item nav-link" href="/water-filtration-and-softening/whole-house-water-filtration-installation">Whole-House Water Filtration Installation</a><a class="nav-item nav-link" href="/water-filtration-and-softening/water-softener-installation">Water Softener Installation</a><a class="nav-item nav-link" href="/water-filtration-and-softening/reverse-osmosis-systems">Reverse Osmosis Systems</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#outdoorplumbingDropdown" data-bs-toggle="collapse" href="/outdoor-plumbing">Outdoor Plumbing</a><div class="collapse ms-3" id="outdoorplumbingDropdown"><a class="nav-item nav-link" href="/outdoor-plumbing/outdoor-faucet-installation">Outdoor Faucet Installation</a><a class="nav-item nav-link" href="/outdoor-plumbing/irrigation-system-installation-and-repair">Irrigation System Installation and Repair</a><a class="nav-item nav-link" href="/outdoor-plumbing/swimming-pool-plumbing-services">Swimming Pool Plumbing Services</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#maintenanceandinspectionsDropdown" data-bs-toggle="collapse" href="/maintenance-and-inspections">Maintenance and Inspections</a><div class="collapse ms-3" id="maintenanceandinspectionsDropdown"><a class="nav-item nav-link" href="/maintenance-and-inspections/plumbing-system-inspections">Plumbing System Inspections</a><a class="nav-item nav-link" href="/maintenance-and-inspections/routine-plumbing-maintenance">Routine Plumbing Maintenance</a><a class="nav-item nav-link" href="/maintenance-and-inspections/seasonal-plumbing-check-ups">Seasonal Plumbing Check-ups</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#remodelingandnewconstructionplumbingDropdown" data-bs-toggle="collapse" href="/remodeling-and-new-construction-plumbing">Remodeling and New Construction Plumbing</a><div class="collapse ms-3" id="remodelingandnewconstructionplumbingDropdown"><a class="nav-item nav-link" href="/remodeling-and-new-construction-plumbing/kitchen-remodel-plumbing">Kitchen Remodel Plumbing</a><a class="nav-item nav-link" href="/remodeling-and-new-construction-plumbing/new-construction-plumbing">New Construction Plumbing</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#backflowpreventionDropdown" data-bs-toggle="collapse" href="/backflow-prevention">Backflow Prevention</a><div class="collapse ms-3" id="backflowpreventionDropdown"><a class="nav-item nav-link" href="/backflow-prevention/backflow-testing">Backflow Testing</a><a class="nav-item nav-link" href="/backflow-prevention/backflow-prevention-device-installation">Backflow Prevention Device Installation</a><a class="nav-item nav-link" href="/backflow-prevention/backflow-repair-and-maintenance">Backflow Repair and Maintenance</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#sumppumpservicesDropdown" data-bs-toggle="collapse" href="/sump-pump-services">Sump Pump Services</a><div class="collapse ms-3" id="sumppumpservicesDropdown"><a class="nav-item nav-link" href="/sump-pump-services/sump-pump-installation">Sump Pump Installation</a><a class="nav-item nav-link" href="/sump-pump-services/sump-pump-repair">Sump Pump Repair</a><a class="nav-item nav-link" href="/sump-pump-services/sump-pump-maintenance">Sump Pump Maintenance</a><a class="nav-item nav-link" href="/sump-pump-services/battery-backup-sump-pumps">Battery Backup Sump Pumps</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#waterpressureissuesDropdown" data-bs-toggle="collapse" href="/water-pressure-issues">Water Pressure Issues</a><div class="collapse ms-3" id="waterpressureissuesDropdown"><a class="nav-item nav-link" href="/water-pressure-issues/water-pressure-testing">Water Pressure Testing</a><a class="nav-item nav-link" href="/water-pressure-issues/low-water-pressure-solutions">Low Water Pressure Solutions</a><a class="nav-item nav-link" href="/water-pressure-issues/high-water-pressure-regulation">High Water Pressure Regulation</a></div><a class="nav-item nav-link dropdown-toggle" data-bs-target="#eco-friendlyplumbingsolutionsDropdown" data-bs-toggle="collapse" href="/eco-friendly-plumbing-solutions">Eco-Friendly Plumbing Solutions</a><div class="collapse ms-3" id="eco-friendlyplumbingsolutionsDropdown"><a class="nav-item nav-link" href="/eco-friendly-plumbing-solutions/low-flow-fixture-installation">Low-Flow Fixture Installation</a><a class="nav-item nav-link" href="/eco-friendly-plumbing-solutions/greywater-recycling-systems">Greywater Recycling Systems</a><a class="nav-item nav-link" href="/eco-friendly-plumbing-solutions/rainwater-harvesting-systems">Rainwater Harvesting Systems</a></div></div>
+</div>
+<!-- Service Area Dropdown -->
+<div class="nav-item dropdown" id="parentServiceAreaDropdown">
+<a class="nav-link dropdown-toggle" data-bs-toggle="" href="https://plumberlakejacksontx.com/service-areas">Service Areas</a>
+<div class="dropdown-menu fade-up m-0" id="serviceArea_dropdown"><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/buffalo-camp-farms">Buffalo Camp Farms</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/lynwood">Lynwood</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/northgate">Northgate</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/shywood">Shywood</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/south-parkwood">South Parkwood</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/oak-forest">Oak Forest</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/timbercreek">Timbercreek</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/northwood">Northwood</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/jackson-oaks">Jackson Oaks</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/sugar-mill-west">Sugar Mill West</a></div>
+</div>
+<div class="d-block d-lg-none" id="mobileServiceAreaMenu">
+<a class="nav-item nav-link dropdown-toggle" data-bs-target="#mobileServiceAreaDropdown" data-bs-toggle="collapse" href="#">Service Areas</a>
+<div class="collapse" id="mobileServiceAreaDropdown"><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/buffalo-camp-farms">Buffalo Camp Farms</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/lynwood">Lynwood</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/northgate">Northgate</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/shywood">Shywood</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/south-parkwood">South Parkwood</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/oak-forest">Oak Forest</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/timbercreek">Timbercreek</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/northwood">Northwood</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/jackson-oaks">Jackson Oaks</a><a class="dropdown-item" href="https://plumberlakejacksontx.com/service-areas/sugar-mill-west">Sugar Mill West</a></div>
+</div>
+<a class="nav-item nav-link" href="https://plumberlakejacksontx.com/testimonial">Testimonial</a>
+<a class="nav-item nav-link" href="https://plumberlakejacksontx.com/faqs">FAQs</a>
+<a class="nav-item nav-link" href="https://plumberlakejacksontx.com/contact">Contact</a>
 </div>
 <div class="mt-4 mt-lg-0 me-lg-n4 py-3 px-4 bg-primary d-flex align-items-center">
 <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 45px; height: 45px;">
@@ -139,7 +246,7 @@
 <div class="ms-3">
 <p class="mb-1 text-white">Emergency 24/7</p>
 <h5 class="m-0 text-secondary">
-<a class="text-secondary text-decoration-none phoneNumber" href="tel:(773) 337-2939" id="about_top_nav_phone">(773) 337-2939</a>
+<a class="text-secondary text-decoration-none phoneNumber" href="tel:(972) 903-8063" id="about_top_nav_phone">(972) 903-8063</a>
 </h5>
 </div>
 </div>
@@ -153,9 +260,8 @@
 <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
 <nav aria-label="breadcrumb animated slideInDown">
 <ol class="breadcrumb text-uppercase">
-<li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-<li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-<li aria-current="page" class="breadcrumb-item text-white active">About</li>
+<li class="breadcrumb-item"><a class="text-white" href="https://plumberlakejacksontx.com/">Home</a></li>
+<li aria-current="page" class="breadcrumb-item text-white active"><a class="text-white" href="https://plumberlakejacksontx.com/about">About</a></li>
 </ol>
 </nav>
 </div>
@@ -164,7 +270,7 @@
 <!-- Service Start -->
 <div class="container-xxl py-5">
 <div class="container">
-<div class="row g-4" id="about_services_carousel"><div class="col-lg-4 col-md-6 service-item-top wow fadeInUp" data-wow-delay="0.1s"><div class="overflow-hidden"><img alt="" class="img-fluid w-100 h-100" src="img/Leak-Detection.jpg"/></div><div class="d-flex align-items-center justify-content-between bg-light p-4"><h5 class="text-truncate me-3 mb-0">Leak Detection</h5><a class="btn btn-square btn-outline-primary border-2 border-white flex-shrink-0" href="leak-detection"><i class="fa fa-arrow-right"></i></a></div></div><div class="col-lg-4 col-md-6 service-item-top wow fadeInUp" data-wow-delay="0.1s"><div class="overflow-hidden"><img alt="" class="img-fluid w-100 h-100" src="img/Leak-Repair.jpg"/></div><div class="d-flex align-items-center justify-content-between bg-light p-4"><h5 class="text-truncate me-3 mb-0">Leak Repair</h5><a class="btn btn-square btn-outline-primary border-2 border-white flex-shrink-0" href="leak-repair"><i class="fa fa-arrow-right"></i></a></div></div><div class="col-lg-4 col-md-6 service-item-top wow fadeInUp" data-wow-delay="0.1s"><div class="overflow-hidden"><img alt="" class="img-fluid w-100 h-100" src="img/Pipe-Repair.jpg"/></div><div class="d-flex align-items-center justify-content-between bg-light p-4"><h5 class="text-truncate me-3 mb-0">Pipe Repair</h5><a class="btn btn-square btn-outline-primary border-2 border-white flex-shrink-0" href="pipe-repair"><i class="fa fa-arrow-right"></i></a></div></div></div>
+<div class="row g-4" id="about_services_carousel"><div class="col-lg-4 col-md-6 service-item-top wow fadeInUp" data-wow-delay="0.1s"><div class="overflow-hidden"><img alt="" class="img-fluid w-100 h-100" src="img/img1.webp"/></div><div class="d-flex align-items-center justify-content-between bg-light p-4"><h5 class="text-truncate me-3 mb-0">Emergency Plumbing</h5><a aria-label="Emergency Plumbing" class="btn btn-square btn-outline-primary border-2 border-white flex-shrink-0" href="emergency-plumbing"><i class="fa fa-arrow-right"></i></a></div></div><div class="col-lg-4 col-md-6 service-item-top wow fadeInUp" data-wow-delay="0.1s"><div class="overflow-hidden"><img alt="" class="img-fluid w-100 h-100" src="img/img2.webp"/></div><div class="d-flex align-items-center justify-content-between bg-light p-4"><h5 class="text-truncate me-3 mb-0">24-Hour Emergency Plumbing</h5><a aria-label="24-Hour Emergency Plumbing" class="btn btn-square btn-outline-primary border-2 border-white flex-shrink-0" href="24-hour-emergency-plumbing"><i class="fa fa-arrow-right"></i></a></div></div><div class="col-lg-4 col-md-6 service-item-top wow fadeInUp" data-wow-delay="0.1s"><div class="overflow-hidden"><img alt="" class="img-fluid w-100 h-100" src="img/img3.webp"/></div><div class="d-flex align-items-center justify-content-between bg-light p-4"><h5 class="text-truncate me-3 mb-0">Burst Pipe Repair</h5><a aria-label="Burst Pipe Repair" class="btn btn-square btn-outline-primary border-2 border-white flex-shrink-0" href="burst-pipe-repair"><i class="fa fa-arrow-right"></i></a></div></div></div>
 </div>
 </div>
 <!-- Service End -->
@@ -174,8 +280,8 @@
 <div class="row g-5">
 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
 <h6 class="text-secondary text-uppercase">About Us</h6>
-<h1 class="mb-4" id="aboutus_title">Lake Jackson, TX: Your Trusted Plumbing Partners</h1>
-<p class="mb-4" id="aboutus_content">At Lake Jackson Plumbing Solutions, we pride ourselves on delivering top-notch plumbing services to the Lake Jackson, TX community. With years of experience under our tool belts, our skilled team of licensed professionals is committed to ensuring your home or business remains leak-free and efficient. We specialize in everything from routine maintenance and minor repairs to complex installations and emergency services. Our customer-first approach ensures transparency, reliability, and satisfaction in every job we undertake. We believe in building lasting relationships with our clients by providing exceptional service and peace of mind. Trust Lake Jackson Plumbing Solutions for all your plumbing needs.</p>
+<h1 class="mb-4" id="aboutus_title">About Us - Your Trusted Plumbing Solutions Partner</h1>
+<p class="mb-4" id="aboutus_content">At Lake Jackson Plumbing Solutions, we pride ourselves on delivering reliable and high-quality plumbing services to our community. With over 20 years of experience, our skilled team of certified plumbers is dedicated to ensuring your home and business enjoy hassle-free plumbing systems. We specialize in all aspects of plumbing, from routine maintenance and repairs to complex installations and emergency services. Our commitment to excellence and customer satisfaction sets us apart, as we tailor our solutions to meet your unique needs. Trust Lake Jackson Plumbing Solutions for prompt, professional, and efficient plumbing services that keep your property in top working order.</p>
 <div class="bg-primary d-flex align-items-center p-4 mt-5">
 <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
 <i class="fa fa-phone-alt fa-2x text-primary"></i>
@@ -183,15 +289,42 @@
 <div class="ms-3">
 <p class="fs-5 fw-medium mb-2 text-white">Emergency 24/7</p>
 <h3 class="m-0 text-secondary">
-<a class="text-secondary text-decoration-none phoneNumber" href="tel:(773) 337-2939" id="about_phone">(773) 337-2939</a>
+<a class="text-secondary text-decoration-none phoneNumber" href="tel:(972) 903-8063" id="about_phone">(972) 903-8063</a>
 </h3>
 </div>
 </div>
 </div>
 <div class="col-lg-6 pt-4" style="min-height: 500px;">
 <div class="position-relative h-100 wow fadeInUp" data-wow-delay="0.5s">
-<img alt="" class="position-absolute img-fluid w-100 h-100" src="img/about-1.jpg" style="object-fit: cover; padding: 0 0 50px 100px;"/>
-<img alt="" class="position-absolute start-0 bottom-0 img-fluid bg-white pt-2 pe-2 w-50 h-50" src="img/about-2.jpg" style="object-fit: cover;"/>
+<picture>
+<source media="(max-width: 767px)" sizes="(max-width: 700px) 100vw, 700px" srcset="
+                            img/about-1_zyqn6d_ar_1_1,c_fill,g_auto__c_scale,w_200.webp 200w,
+                            img/about-1_zyqn6d_ar_1_1,c_fill,g_auto__c_scale,w_474.webp 474w,
+                            img/about-1_zyqn6d_ar_1_1,c_fill,g_auto__c_scale,w_675.webp 675w,
+                            img/about-1_zyqn6d_ar_1_1,c_fill,g_auto__c_scale,w_700.webp 700w"/>
+<source media="(min-width: 768px) and (max-width: 991px)" sizes="(max-width: 991px) 70vw, 694px" srcset="
+                            img/about-1_zyqn6d_ar_4_3,c_fill,g_auto__c_scale,w_538.webp 538w,
+                            img/about-1_zyqn6d_ar_4_3,c_fill,g_auto__c_scale,w_694.webp 694w"/>
+<source media="(min-width: 992px) and (max-width: 1199px)" sizes="(max-width: 1167px) 60vw, 700px" srcset="
+                            img/about-1_zyqn6d_ar_16_9,c_fill,g_auto__c_scale,w_596.webp 596w,
+                            img/about-1_zyqn6d_ar_16_9,c_fill,g_auto__c_scale,w_700.webp 700w"/>
+<img alt="plumber near me" sizes="(max-width: 1750px) 40vw, 700px" src="img/about-1_zyqn6d_c_scale,w_700.webp" srcset="
+                            img/about-1_zyqn6d_c_scale,w_480.webp 480w,
+                            img/about-1_zyqn6d_c_scale,w_700.webp 700w"/>
+</picture>
+<!-- <img class="position-absolute start-0 bottom-0 img-fluid bg-white pt-2 pe-2 w-50 h-50"
+                        src="img/about-2.jpg" style="object-fit: cover;" alt=""> -->
+<picture>
+<source media="(max-width: 767px)" sizes="(max-width: 400px) 100vw, 400px" srcset="
+                            img/about-2_qwpv9i_ar_1_1,c_fill,g_auto__c_scale,w_200.webp 200w,
+                            img/about-2_qwpv9i_ar_1_1,c_fill,g_auto__c_scale,w_400.webp 400w"/>
+<source media="(min-width: 768px) and (max-width: 991px)" sizes="(max-width: 571px) 70vw, 400px" srcset="
+                            img/about-2_qwpv9i_ar_4_3,c_fill,g_auto__c_scale,w_400.webp 400w"/>
+<source media="(min-width: 992px) and (max-width: 1199px)" sizes="(max-width: 667px) 60vw, 400px" srcset="
+                            img/about-2_qwpv9i_ar_16_9,c_fill,g_auto__c_scale,w_400.webp 400w"/>
+<img alt="plumber near me" sizes="(max-width: 1000px) 40vw, 400px" src="img/about-2_qwpv9i_c_scale,w_400.webp" srcset="
+                            img/about-2_qwpv9i_c_scale,w_400.webp 400w"/>
+</picture>
 </div>
 </div>
 </div>
@@ -199,32 +332,32 @@
 </div>
 <!-- About End -->
 <!-- Fact Start -->
-<div class="container-fluid fact bg-dark my-5 py-5">
-<div class="container">
-<div class="row g-4">
-<div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
-<i class="fa fa-check fa-2x text-white mb-3"></i>
-<h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
-<p class="text-white mb-0">Years Experience</p>
-</div>
-<div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
-<i class="fa fa-users-cog fa-2x text-white mb-3"></i>
-<h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
-<p class="text-white mb-0">Expert Technicians</p>
-</div>
-<div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
-<i class="fa fa-users fa-2x text-white mb-3"></i>
-<h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
-<p class="text-white mb-0">Satisfied Clients</p>
-</div>
-<div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
-<i class="fa fa-wrench fa-2x text-white mb-3"></i>
-<h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
-<p class="text-white mb-0">Compleate Projects</p>
-</div>
-</div>
-</div>
-</div>
+<!-- <div class="container-fluid fact bg-dark my-5 py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
+                    <i class="fa fa-check fa-2x text-white mb-3"></i>
+                    <h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
+                    <p class="text-white mb-0">Years Experience</p>
+                </div>
+                <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
+                    <i class="fa fa-users-cog fa-2x text-white mb-3"></i>
+                    <h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
+                    <p class="text-white mb-0">Expert Technicians</p>
+                </div>
+                <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
+                    <i class="fa fa-users fa-2x text-white mb-3"></i>
+                    <h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
+                    <p class="text-white mb-0">Satisfied Clients</p>
+                </div>
+                <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
+                    <i class="fa fa-wrench fa-2x text-white mb-3"></i>
+                    <h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
+                    <p class="text-white mb-0">Compleate Projects</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
 <!-- Fact End -->
 <!-- Content Section Start -->
 <div class="container-fluid my-5 px-0">
@@ -233,112 +366,79 @@
 <div class="row">
 <div class="col-lg-10 mx-auto">
 <article class="bg-light p-4">
-<p id="about_emergency_content"><h1>Discovering Lake Jackson, TX: A Historical and Cultural Expedition with a Nod to Plumbing Needs</h1>
-<p>Lake Jackson, TX, a small city wrapped in rich history and vibrant culture, gracefully lies in the heart of Brazoria County. Founded in the early 1940s, it was designed as a planned community by Alden B. Dow, an architect and a visionary, who was commissioned by Dow Chemical Company. Today, Lake Jackson stands as a testament to both its storied past and thriving present. In addition to delving into its historical and cultural tapestry, this article explores the practical side of life in Lake Jackson, including the ever-essential plumbing services that contribute to the city's well-being.</p>
-<h2>A Glimpse into History</h2>
+<p class="text-dark" id="about_emergency_content"><p class="text-dark">Lake Jackson, TX, steeped in history and culture, is an idyllic city that has grown exponentially since its founding days. Originally developed as a company town in the early 1940s by Dow Chemical, Lake Jackson has matured into a vibrant community boasting rich cultural diversity and historical significance. With its beautiful landscapes, the city has retained its close-knit community spirit while embracing modern development. This evolution has resulted in a growing demand for specialized services, including the indispensable expertise provided by professional plumbers.</p>
+<h3>The Importance of Plumbing Services</h3>
+<p class="text-dark">In a city like Lake Jackson, where expansion and remodeling are constants, the role of a skilled plumber cannot be understated. Aging infrastructure within historic buildings and new construction projects alike ensure a steady demand for a wide range of plumbing services. Let's explore some key sub-services provided by expert plumbers in Lake Jackson.</p>
+<h4>Residential Plumbing</h4>
 <ul>
-<li>
-<p><strong>Founding and Development:</strong>
-  Lake Jackson was developed during World War II as a company town for Dow Chemical employees. This urban planning project, driven by modernist ideals, aimed to create a self-sufficient community featuring residential, commercial, and industrial areas. </p>
-</li>
-<li>
-<p><strong>Architectural Legacy:</strong>
-  Alden B. Dow's influence can be seen in the city’s distinct architectural style. Drawing inspiration from Frank Lloyd Wright, Dow incorporated innovative designs and community-focused layouts that were cutting-edge for their time. Many buildings still retain their original charm and continue to exemplify the city’s mid-century origins.</p>
-</li>
-<li>
-<p><strong>Historical Landmarks:</strong>
-  Noteworthy sites in Lake Jackson include the Lake Jackson Historical Museum, which offers deep insights into the city’s inception and growth. Outside the downtown area, the site of the original Jackson Plantation gives visitors a glimpse into the region's antebellum past.</p>
-</li>
+<li><strong>Leak Detection and Repair</strong>: With older homes, leaks can cause significant damage if undetected. Advanced leak detection technology allows plumbers to identify and rectify issues before they escalate.</li>
+<li><strong>Fixture Installations</strong>: From traditional single-family homes to modern condos, professional plumbers ensure the seamless installation of faucets, sinks, and showers that meet both aesthetic and functional needs.</li>
 </ul>
-<h2>Cultural Mosaic</h2>
-<p>Lake Jackson's cultural scene is a vibrant tapestry reflecting both its history and the diverse population that calls it home. </p>
+<h4>Commercial Plumbing</h4>
 <ul>
-<li>
-<p><strong>Annual Events:</strong>
-  The city hosts numerous annual events that draw both residents and visitors. One such event is the Gulf Coast Bird Observatory's migratory bird festivals, which celebrate the coastal region's ecological significance. The Festival of Lights is another popular event, bringing the community together with parades, markets, and festive cheer.</p>
-</li>
-<li>
-<p><strong>Art and Music:</strong>
-  Art has a vital presence in Lake Jackson, with community organizations promoting local artists and offering workshops and galleries. Music is also a significant part of the city's cultural offerings, with live performances ranging from local bands to classical concerts enriching the cultural landscape.</p>
-</li>
-<li>
-<p><strong>Community Centers and Libraries:</strong>
-  The Lake Jackson Library serves as a dynamic community hub, offering various programs for all ages. Recreational activities at local community centers add to the socio-cultural interaction among residents.</p>
-</li>
+<li><strong>Pipe Maintenance and Repairs</strong>: Businesses risk operational downtime due to pipe failures. Plumbers help mitigate this with routine maintenance schedules that prevent unexpected mishaps.</li>
+<li><strong>Plumbing System Design</strong>: For new commercial projects, experienced plumbers design and implement systems that are scalable and adhere to local codes and environmental guidelines.</li>
 </ul>
-<h2>Plumbing Needs in Lake Jackson</h2>
-<p>A city’s functionality often hinges on the unsung heroes: its plumbers. In Lake Jackson, the need for professional plumbing services is underscored by the area’s complex infrastructure and growing population.</p>
-<h3>Essential Plumbing Services</h3>
+<h4>Emergency Plumbing</h4>
 <ul>
-<li>
-<p><strong>Residential Plumbing:</strong>
-  From fixing leaky faucets to undertaking complex pipe installations, residential plumbers ensure the smooth functioning of household water systems. Services typically include drain cleaning, toilet repairs, and troubleshooting water heater issues—essential for the many historic homes found in Lake Jackson.</p>
-</li>
-<li>
-<p><strong>Commercial Plumbing:</strong>
-  With businesses ranging from local eateries to larger establishments, commercial plumbing services are pivotal. Tasks include the maintenance of restroom facilities, installation of water systems in new constructions, and ensuring compliance with local regulations.</p>
-</li>
-<li>
-<p><strong>Emergency Plumbing:</strong>
-  Emergency services are crucial for addressing unforeseen plumbing mishaps such as burst pipes or sewer backups, minimizing damage and inconvenience for residents and businesses alike.</p>
-</li>
+<li><strong>24/7 Emergency Services</strong>: Plumbing emergencies can arise unexpectedly, causing inconvenience and potential damage. With around-the-clock availability, professional plumbers provide peace of mind by swiftly addressing urgent issues.</li>
+<li><strong>Clogged Drains and Sewers</strong>: Using state-of-the-art equipment, plumbers efficiently tackle blockages, restoring normalcy to residential and commercial properties alike.</li>
 </ul>
-<h3>Sub-Services in Plumbing</h3>
+<h4>Specialized Plumbing Solutions</h4>
 <ul>
-<li>
-<p><strong>Water Heater Services:</strong>
-  This includes installation, repair, and maintenance of various types of water heaters, ensuring energy efficiency and reliability.</p>
-</li>
-<li>
-<p><strong>Sewer and Drain Services:</strong>
-  Proper sewer and drain maintenance prevent clogs and backups. Regular cleaning and repair services are essential for urban and residential areas, maintaining sanitation and public health.</p>
-</li>
-<li>
-<p><strong>Pipe Repair and Installation:</strong>
-  Addressing leaks and damages in pipe systems is critical in preventing water waste and property damage. New installations also require precision to ensure long-term functionality.</p>
-</li>
-<li>
-<p><strong>Gas Line Services:</strong>
-  Safe installation and maintenance of gas lines are vital, as malfunctioning systems can pose significant safety risks.</p>
-</li>
+<li><strong>Water Heater Installation and Repairs</strong>: Energy-efficient water heaters are critical in a city that values sustainability; professional plumbers ensure they are installed and maintained to the highest standards.</li>
+<li><strong>Water Treatment Systems</strong>: With a focus on providing quality water to residents, comprehensive installation services for filtration and softening systems are essential.</li>
 </ul>
-<h2>Community and Environmental Considerations</h2>
-<p>Lake Jackson places a strong emphasis on sustainability and community welfare. Plumbers and service providers are increasingly adopting eco-friendly practices. Water conservation techniques, such as the installation of low-flow fixtures and energy-efficient appliances, are encouraged to reduce environmental impact.</p>
-<h2>Moving Forward: Growth and Development</h2>
-<p>Looking ahead, the city's commitment to preserving its historical roots while fostering modern growth presents exciting opportunities. Infrastructure improvements, including advancements in plumbing technology and services, will continue to support the health and growth of Lake Jackson.</p>
-<p>Lake Jackson, TX, is more than just a city; it is a living story that intertwines history, culture, and modern living. Its architectural charm, cultural vibrancy, and community-centric lifestyle create an inviting environment. Coupled with reliable plumbing services that support daily life, Lake Jackson stands as an exemplary modern community rooted in historical significance. As it continues to grow and evolve, the city remains a fascinating destination and a beloved home to its residents.</p></p></article>
+<p class="text-dark">If you're experiencing a plumbing issue or considering a project that requires professional assistance, click on the call button now to connect with our representatives who are ready to guide you through the process.</p></p></article>
 </div>
 </div>
 </div>
 </div>
 <!-- Content Section End -->
+<div class="container-xxl py-5">
+<div class="container">
+<div class="row g-4">
+<div class="col-md-12 wow fadeInUp" data-wow-delay="0.1s">
+<h1 class="mb-4" id="contact_section_title">Find Us</h1>
+<iframe allowfullscreen="" aria-hidden="false" class="position-relative w-100" frameborder="0" id="mapFrame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125000!2d-95.47511!3d29.04971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f18!3m3!1m2!1s0x0%3A0x0!2sLocation!5e0!3m2!1sen!2s!4v1234567890" style="height: 300px; border:0;" tabindex="0">
+</iframe>
+</div>
+</div>
+</div>
+</div>
 <!-- Footer Start -->
 <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
 <div class="container py-5">
 <div class="row g-5">
 <div class="col-lg-3 col-md-6">
-<h4 class="text-light mb-4">Address</h4>
-<p class="mb-2" id="about_footer_city">Lake Jackson, TX</p>
-<a class="text-secondary text-decoration-none phoneNumber" href="tel:(773) 337-2939" id="footer_phone">(773) 337-2939</a>
+<h4 class="text-light mb-4">Business</h4>
+<p class="mb-2" id="footer_business_name">Pro Plumber Lake Jackson</p>
+<p class="mb-2" id="businessAddress">136 Oyster Creek Dr suite b, Lake Jackson, TX 77566, USA</p>
+<p class="mb-2"><a class="text-light text-decoration-none phoneNumber" href="tel:(972) 903-8063" id="footer_phone">(972) 903-8063</a></p>
 <p class="mb-2" id="about_footer_email">info@plumberlakejacksontx.com</p>
-<!-- <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href="[Twitter]"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="[Facebook]"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="[Youtube]"><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="[LinkedIn]"><i class="fab fa-linkedin-in"></i></a>
-                    </div> -->
+<div class="d-flex pt-2">
+<a class="socialFacebook btn btn-outline-light btn-social" href="https://www.facebook.com/proplumberlakejackson"><i class="fab fa-facebook-f"></i></a>
+<a class="socialInstagram btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+<a class="socialLinkedin btn btn-outline-light btn-social" href="https://www.linkedin.com/in/pro-plumber-lake-jackson-6811a1356/"><i class="fab fa-linkedin-in"></i></a>
+<a class="socialPinterest btn btn-outline-light btn-social" href="https://www.pinterest.com/ProPlumberLakeJackson/"><i class="fab fa-pinterest"></i></a>
+</div>
 </div>
 <div class="col-lg-3 col-md-6">
 <h4 class="text-light mb-4">Opening Hours</h4>
-<h6 class="text-light">Monday - Friday:</h6>
-<p class="mb-4">09.00 AM - 09.00 PM</p>
-<h6 class="text-light">Saturday - Sunday:</h6>
-<p class="mb-0">09.00 AM - 12.00 PM</p>
+<h6 class="text-light">Monday - Sunday:</h6>
+<p class="mb-4">24 Hours</p>
+<p class="text-light">24x7 Emergency Service</p>
 </div>
-<div class="col-lg-3 col-md-6" id="footer_service_links"><h4 class="text-light mb-4">Services</h4><a class="btn btn-link" href="leak-detection">Leak Detection</a><a class="btn btn-link" href="leak-repair">Leak Repair</a><a class="btn btn-link" href="pipe-repair">Pipe Repair</a><a class="btn btn-link" href="tap-repair">Tap Repair</a><a class="btn btn-link" href="drainage-cleaning">Drainage Cleaning</a></div>
+<div class="col-lg-3 col-md-6" id="footer_service_links">
+<h4 class="text-light mb-4">Links</h4>
+<a class="btn btn-link" href="https://plumberlakejacksontx.com/privacy-policy">Privacy Policy</a>
+<a class="btn btn-link" href="https://plumberlakejacksontx.com/terms-and-conditions">Terms &amp; Conditions</a>
+<a class="btn btn-link" href="https://plumberlakejacksontx.com/certifications">Certifications</a>
+<a class="btn btn-link" href="https://plumberlakejacksontx.com/sitemap.xml">Sitemap</a>
+</div>
 <div class="col-lg-3 col-md-6">
 <h4 class="text-light mb-4">Newsletter</h4>
-<p>Sign up to our Newsletter</p>
+<p class="text-dark">Sign up to our Newsletter</p>
 <div class="position-relative mx-auto" style="max-width: 400px;">
 <input class="form-control border-0 w-100 py-3 ps-4 pe-5" placeholder="Your email" type="text"/>
 <button class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" type="button">SignUp</button>
@@ -361,16 +461,9 @@
 <a class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top" href="#"><i class="bi bi-arrow-up"></i></a>
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="lib/wow/wow.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/waypoints/waypoints.min.js"></script>
-<script src="lib/counterup/counterup.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="lib/tempusdominus/js/moment.min.js"></script>
-<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Template Javascript -->
-<script src="js/main.js"></script>
+<script defer="" src="js/main.js"></script>
 </body>
 </html>
